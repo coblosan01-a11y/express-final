@@ -1,0 +1,1081 @@
+/* ====================================
+   PEMBAYARAN.CSS - IMPROVED LAYOUT
+   Laundry items dengan styling yang sama bagusnya dengan Pickup Service
+   ==================================== */
+
+.payment-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 0.5rem;
+}
+
+.payment-modal {
+  background: rgb(255, 255, 255);
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  width: 80%;
+  max-width: 95vw;
+  height: calc(100vh - 1rem);
+  max-height: 90vh;
+  overflow: hidden;
+  animation: slideUp 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-header {
+  background: linear-gradient(135deg, #8d9cdd, #8360a5);
+  color: rgb(233, 167, 43);
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  font-size: 100cm;
+}
+
+.header-content h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.header-content p {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 0.8rem;
+}
+
+.close-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.modal-content {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  flex: 1;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.form-section {
+  padding: 1.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-group label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.input-field {
+  padding: 0.75rem;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  transition: border-color 0.2s;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.customer-info-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.customer-details {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.customer-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #3b82f6;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+
+.customer-data {
+  display: flex;
+  flex-direction: column;
+}
+
+.customer-name {
+  font-weight: 600;
+  color: #1f2937;
+  font-size: 0.875rem;
+}
+
+.customer-phone {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.customer-status {
+  color: #0ea5e9;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.payment-methods {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.method-card {
+  padding: 0.75rem;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.method-card:hover {
+  border-color: #667eea;
+  background: #f8fafc;
+}
+
+.method-card.active {
+  border-color: #667eea;
+  background: #eff6ff;
+}
+
+.method-icon {
+  font-size: 1.2rem;
+}
+
+.method-name {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.payment-input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.amount-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.currency {
+  position: flex;
+}
+
+.amount-field {
+  padding-left: 2.5rem;
+}
+
+.auto-btn {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: all 0.2s;
+}
+
+.auto-btn:hover {
+  background: #5b21b6;
+}
+
+.change-info {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 6px;
+  padding: 0.75rem;
+}
+
+.change-info.insufficient {
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+
+.change-display {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.change-amount {
+  color: #059669;
+}
+
+.change-amount.negative {
+  color: #dc2626;
+}
+
+.alert {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.summary-section {
+  background: #f8fafc;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-left: 1px solid #e5e7eb;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+.summary-section h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #374151;
+  font-weight: 600;
+}
+
+/* ============================================
+   🔥 IMPROVED: PICKUP SERVICE STYLING (Existing - Tetap Bagus)
+   ============================================ */
+.pickup-payment-summary {
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+  border: 2px solid #10b981;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.15);
+  animation: slideIn 0.3s ease-out;
+}
+
+.pickup-header {
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #a7f3d0;
+}
+
+.pickup-header h4 {
+  margin: 0;
+  color: #047857;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pickup-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pickup-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  color: #047857;
+}
+
+.pickup-type {
+  font-size: 0.9rem;
+}
+
+.pickup-cost {
+  color: #10b981;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.pickup-info-compact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.pickup-schedule,
+.pickup-distance {
+  color: #047857;
+  font-size: 0.75rem;
+  padding-left: 0.5rem;
+  border-left: 3px solid #a7f3d0;
+  margin-left: 0.5rem;
+}
+
+/* ============================================
+   🔥 NEW: LAUNDRY SERVICE STYLING (Matching Pickup Style!)
+   ============================================ */
+.laundry-payment-summary {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border: 2px solid #3b82f6;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
+  animation: slideIn 0.3s ease-out;
+}
+
+.laundry-header {
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #93c5fd;
+}
+
+.laundry-header h4 {
+  margin: 0;
+  color: #1e40af;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.laundry-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.laundry-item {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid #93c5fd;
+  border-radius: 8px;
+  padding: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.laundry-item:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: #3b82f6;
+  box-shadow: 0 2px 6px rgba(59, 130, 246, 0.1);
+}
+
+.laundry-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.laundry-item-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1e3a8a;
+  flex: 1;
+}
+
+.laundry-item-total {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.laundry-item-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px dashed #93c5fd;
+}
+
+.laundry-qty-detail {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: rgba(59, 130, 246, 0.1);
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  color: #1e40af;
+}
+
+.laundry-qty-detail strong {
+  font-weight: 600;
+}
+
+.laundry-qty-detail .unit {
+  font-weight: 500;
+  color: #3b82f6;
+}
+
+.laundry-qty-detail .price {
+  color: #60a5fa;
+  font-size: 0.7rem;
+}
+.order-summary {
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  max-height: none;
+  overflow-y: visible;
+}
+
+/* Empty state */
+.empty-order {
+  text-align: center;
+  color: #6b7280;
+  padding: 2rem 1rem;
+  font-style: italic;
+  font-size: 0.85rem;
+  background: #f9fafb;
+  border: 2px dashed #d1d5db;
+  border-radius: 8px;
+  margin: 0.5rem 0;
+}
+
+.empty-order span {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.empty-order small {
+  display: block;
+  color: #9ca3af;
+  font-size: 0.75rem;
+}
+
+/* ============================================
+   OLD COMPACT STYLES (Backup - bisa dihapus jika tidak dipakai)
+   ============================================ */
+.order-items-compact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.order-item-compact {
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem;
+  background: #f8fafc;
+  border-radius: 6px;
+  border-left: 3px solid #667eea;
+  gap: 0.5rem;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #374151;
+  flex: 1;
+}
+
+.item-price {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #059669;
+  white-space: nowrap;
+}
+
+.item-details-compact {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+
+.qty-badge-compact {
+  background: #667eea;
+  color: white;
+  padding: 0.125rem 0.375rem;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: 500;
+}
+
+/* ============================================
+   SUMMARY CARD & TOTALS
+   ============================================ */
+.summary-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  font-size: 0.8rem;
+  border-bottom: 1px solid #f3f4f6;
+  color: #4b5563;
+}
+
+.summary-row:last-child {
+  border-bottom: none;
+}
+
+.summary-row.total-row {
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-top: 2px solid #e5e7eb;
+  margin-top: 0.5rem;
+  padding-top: 0.75rem;
+  color: #1f2937;
+}
+
+.amount {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.total-amount {
+  color: #059669;
+  font-weight: 700;
+}
+
+.total-amount.negative {
+  color: #dc2626;
+}
+
+/* ============================================
+   ACTION BUTTONS
+   ============================================ */
+.action-buttons {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
+.btn-primary {
+  flex: 2;
+  background: linear-gradient(135deg, #059669, #10b981);
+  color: white;
+  border: none;
+  padding: 0.875rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.btn-primary:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-primary:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-secondary {
+  flex: 1;
+  background: #6b7280;
+  color: white;
+  border: none;
+  padding: 0.875rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #4b5563;
+  transform: translateY(-1px);
+}
+
+.btn-secondary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ============================================
+   PROCESSING STATE
+   ============================================ */
+.processing-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.processing-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.processing-content {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+}
+
+.processing-content p {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 8px 0;
+}
+
+.processing-content small {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.processing-spinner-large {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e5e7eb;
+  border-top: 4px solid #10b981;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 1200px) {
+  .modal-content {
+    grid-template-columns: 1fr 350px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .payment-modal {
+    max-width: 98vw;
+    height: calc(100vh - 0.5rem);
+    max-height: 98vh;
+  }
+  
+  .modal-content {
+    grid-template-columns: 1fr 320px;
+  }
+  
+  .payment-overlay {
+    padding: 0.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .payment-modal {
+    margin: 0;
+    border-radius: 8px;
+    max-width: 100vw;
+    max-height: 100vh;
+    height: 100vh;
+  }
+  
+  .payment-overlay {
+    padding: 0;
+  }
+  
+  .modal-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+  }
+  
+  .form-section {
+    padding: 1rem;
+    order: 1;
+  }
+  
+  .summary-section {
+    padding: 1rem;
+    border-left: none;
+    border-top: 1px solid #e5e7eb;
+    order: 2;
+    max-height: 50vh;
+    overflow-y: auto;
+  }
+  
+  .payment-methods {
+    grid-template-columns: 1fr;
+  }
+  
+  .customer-info-display {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  
+  .customer-details {
+    align-self: stretch;
+  }
+  
+  .customer-status {
+    align-self: flex-end;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    flex: none;
+  }
+  
+  .pickup-item,
+  .laundry-item-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+  
+  .pickup-cost,
+  .laundry-item-total {
+    align-self: flex-end;
+  }
+  
+  .laundry-items-list {
+    max-height: 200px;
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .payment-modal {
+    border-radius: 0;
+  }
+  
+  .modal-header {
+    padding: 0.75rem 1rem;
+  }
+  
+  .header-content h2 {
+    font-size: 1rem;
+  }
+  
+  .header-content p {
+    font-size: 0.75rem;
+  }
+  
+  .form-section,
+  .summary-section {
+    padding: 0.75rem;
+  }
+  
+  .pickup-payment-summary,
+  .laundry-payment-summary {
+    padding: 0.75rem;
+  }
+  
+  .summary-card {
+    padding: 0.75rem;
+  }
+  
+  .pickup-schedule,
+  .pickup-distance {
+    margin-left: 0;
+    padding-left: 0.25rem;
+    border-left-width: 2px;
+  }
+  
+  .laundry-item {
+    padding: 0.5rem;
+  }
+  
+  .laundry-item-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+  
+  .laundry-item-total {
+    align-self: flex-end;
+  }
+}
+
+/* ============================================
+   SCROLLBAR STYLING
+   ============================================ */
+.form-section::-webkit-scrollbar,
+.summary-section::-webkit-scrollbar,
+.laundry-items-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.form-section::-webkit-scrollbar-track,
+.summary-section::-webkit-scrollbar-track,
+.laundry-items-list::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 3px;
+}
+
+.form-section::-webkit-scrollbar-thumb,
+.summary-section::-webkit-scrollbar-thumb,
+.laundry-items-list::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.form-section::-webkit-scrollbar-thumb:hover,
+.summary-section::-webkit-scrollbar-thumb:hover,
+.laundry-items-list::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ============================================
+   ACCESSIBILITY & FOCUS STATES
+   ============================================ */
+.method-card:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+button:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+.payment-overlay {
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ============================================
+   DISABLED STATES
+   ============================================ */
+.btn-primary:disabled,
+.btn-secondary:disabled,
+.method-card:disabled,
+.input-field:disabled,
+.auto-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ============================================
+   HIGH CONTRAST MODE SUPPORT
+   ============================================ */
+@media (prefers-contrast: high) {
+  .method-card {
+    border-width: 3px;
+  }
+  
+  .method-card.active {
+    border-color: #000;
+    background: #fff;
+  }
+  
+  .customer-info-display {
+    border-width: 2px;
+  }
+  
+  .laundry-payment-summary,
+  .pickup-payment-summary {
+    border-width: 3px;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION SUPPORT
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .payment-modal {
+    animation: none;
+  }
+  
+  .processing-spinner,
+  .processing-spinner-large {
+    animation: none;
+  }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+@media print {
+  .payment-overlay {
+    display: none;
+  }
+  
+  .modal-header,
+  .action-buttons {
+    display: none;
+  }
+  
+  .payment-modal {
+    box-shadow: none;
+    border: none;
+    max-width: none;
+    max-height: none;
+  }
+  
+  .modal-content {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+  
+  .form-section,
+  .summary-section {
+    padding: 0;
+    background: white;
+    border: none;
+  }
+  
+  .pickup-payment-summary,
+  .laundry-payment-summary {
+    background: white !important;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+  }
+  
+}
+
+.wallet-logo{
+  width: 30px;
+  height: 30px;
+}
+
+.wallet-satu-logo{
+  width: 15px;
+  height: 15px;
+}
+
+.dollar-logo{
+  width: 20px;
+  height: 20px;
+}
+
+.customer-logo{
+  width: 20px;
+  height: 20px;
+}
